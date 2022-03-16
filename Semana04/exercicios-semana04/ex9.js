@@ -16,8 +16,13 @@ const list = [
     { nome: 'Água 5L', quantidade: 2, valor: 5.99},
     { nome: 'Pão Francês', quantidade: 8, valor: 0.63}
     ];
+   const value = list.map((element, index, Array) => {
+     return list[index].quantidade * list[index].valor
+   });
 
-    let value = list.forEach((element, index, arrayOriginal) => {
-        list[0].nome = "X";
-      });
-      console.log(value);
+   const total = value.reduce((acumulador, number) => {
+      return acumulador + Number(number);
+    }, 0);
+
+   //console.log(value);
+   console.log(` R$ ${total}`);
