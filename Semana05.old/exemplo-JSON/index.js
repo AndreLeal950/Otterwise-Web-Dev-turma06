@@ -1,9 +1,24 @@
 import {mostra} from "./helpers.js";
+import  fs  from "fs"
+
  
 
 const user = {
-    name : "Leal",
-    age : "48"
+    firstName : "Andre",
+     lastName : "Leal",
+    age : "48",
+    email : "lealbelem@yahoo.com.br"
 };
 
-mostra(user)
+mostra(user);
+
+
+const saveToJSON = (data, fileName) => {
+
+    const parsedJSON = JSON.stringify(data);
+
+    fs.writeFileSync(fileName, parsedJSON);
+
+};
+saveToJSON(user, "dados.JSON" );
+

@@ -1,0 +1,5 @@
+/* 1. Crie um botão utilizando a tag button e coloque uma cor vermelha de fundo. Ao passar o mouse em cima do botão a cor do fundo deverá mudar para azul. */
+
+.new-botton{
+    border: none;
+}
