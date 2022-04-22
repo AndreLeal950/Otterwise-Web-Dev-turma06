@@ -19,6 +19,18 @@ let aleatory = []
     }
 console.log(aleatory);
 
+const cepInput =  aleatory.map((element, index, array) => element)
+console.log(cepInput);
+
+const cepReceive = aleatory.map(async (e) => {
+    //console.log(infoCep(e))
+    //console.log(await infoCep(e))
+    //console.log(e)
+    return await infoCep(e)
+});
+Promise.all(cepReceive).then(ceps => {console.log(ceps)});
+
+console.log(cepReceive);
 
 const saveToJSON = (data, fileName) => {
 
@@ -30,9 +42,9 @@ const saveToJSON = (data, fileName) => {
 
 const main = async () => {
  
-const saveCepInput = cepInput();
+const saveCepReceive = cepReceive;
 
-const saveInfoCep = await infoCep(saveCepInput);
+const saveInfoCep = await infoCep();
 
 saveToJSON (saveInfoCep, "Local.json")
 }

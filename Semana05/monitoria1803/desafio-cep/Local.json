@@ -1,0 +1,26 @@
+[
+    {
+        "cep": "29047-680",
+        "logradouro": "Rua Raymundo Custódio Rodrigues",
+        "complemento": "",
+        "bairro": "Itararé",
+        "localidade": "Vitória",
+        "uf": "ES",
+        "ibge": "3205309",
+        "gia": "",
+        "ddd": "27",
+        "siafi": "5705"
+    },
+    {
+        "cep": "29057-010",
+        "logradouro": "Rua Carlos Hely",
+        "complemento": "",
+        "bairro": "Ilha do Frade",
+        "localidade": "Vitória",
+        "uf": "ES",
+        "ibge": "3205309",
+        "gia": "",
+        "ddd": "27",
+        "siafi": "5705"
+    }
+]

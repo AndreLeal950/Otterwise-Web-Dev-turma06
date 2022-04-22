@@ -14,7 +14,7 @@ import { input } from "console-input";
 
 //const cepInput = () => input("Digite um CEP:");
 
-const searchCep = async (cep) => {
+const infoCep = async (cep) => {
   try {
     const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
     return response.data;
@@ -29,52 +29,32 @@ let aleatory = []
     
         aleatory.push(Math.floor (Math.random() * ( 29099999 - 29000000 ))+ 29000000);
     }
-console.log(aleatory);
+
+
+const cepReceive = await Promise.all(aleatory.map(async (e) => {
+       
+         return await infoCep(e)
+}))
+
+ const cepFilters = cepReceive.filter((e) => e.erro !== true)
+ 
+
+
 
 const saveToJSON = (data, fileName) => {
-  const parsedJSON = JSON.stringify(data);
-  fs.writeFileSync(fileName, parsedJSON);
-};
 
-const main = async () => {
-  try {
-    const cep = aleatory;
-    const cepRetornado = await searchCep(cep);
-    saveToJSON(cepRetornado, "cep.json");
-  } catch (error) {
-    console.log(error.message);
-  }
-};
-
-main();
-
-// const cepReceive = aleatory.map(async (e) => {
-//          infoCep(e)
-//          console.log(await infoCep(e))
-//          //console.log(e)
-//          return await infoCep(e)
-// });
-// // //console.log(cepReceive);
-//  Promise.all(aleatory).then(ceps =>{console.log(ceps)});
-
-
-// const saveToJSON = (data, fileName) => {
-
-//     const parsedJSON = JSON.stringify(data);
+    const parsedJSON = JSON.stringify(data);
     
-//     fs.writeFileSync(fileName, parsedJSON);
+    fs.writeFileSync(fileName, parsedJSON);
     
-//     };
-//     saveToJSON();
+ };
 
 
-
-// const main = async () => {
+const main =  () => {
  
-// //const saveCepReceive = cepReceive();
+const saveInfoCep = cepFilters;
+console.log("Ceps", saveInfoCep);
 
-// const saveInfoCep = await infoCep(cepReceive);
-
-// saveToJSON (saveInfoCep, "Local.json")
-// }
-// main();
+saveToJSON (saveInfoCep, "Local.json")
+}
+main();
