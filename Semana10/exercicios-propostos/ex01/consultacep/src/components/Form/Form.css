@@ -1,0 +1,12 @@
+.form {
+  background-color: #282c34;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:CENTER;
+  gap: 2px;
+  font-size: calc(10px + 2vmin);
+  background-color: aqua;
+  color: black;
+}
+
